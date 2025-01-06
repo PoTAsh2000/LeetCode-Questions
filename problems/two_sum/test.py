@@ -1,7 +1,7 @@
 from solution import Solution
 
-nums = [3,2,4]
-target = 6
+nums = [2,7,11,15]
+target = 9
 
 solution_class = Solution()
 result = solution_class.twoSum(nums, target)

@@ -3,18 +3,12 @@ class Solution(object):
         pass
     
     def twoSum(self, nums, target):
-        for iter1 in range(len(nums)):
-            for iter2 in range(len(nums)):
-                if iter1 == iter2:
-                    continue
-                
-                sum = nums[iter1] + nums[iter2]
-                if sum == target:
-                    return self.getResult(iter1, iter2)
+        seen = {}
+        for i in range(len(nums)):
+            num = nums[i]
+            diff_from_target = target - num
+            if seen.__contains__(diff_from_target):
+                return [seen[diff_from_target], i]
+            seen[num] = i
+
         return None
-        
-    def getResult(self, i1, i2):
-        result = []
-        result.append(i1)
-        result.append(i2)
-        return result
