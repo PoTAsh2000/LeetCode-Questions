@@ -5,11 +5,13 @@ class Solution(object):
         :type needle: str
         :rtype: int
         """
-        
-        for index, character in enumerate(haystack):
-            if character != needle[0]: continue
-
-            subString = haystack[index:]
-            if subString.startswith(needle): return index
-
-        return -1
+        err = None
+        while err == None:
+            try:
+                index = haystack.index(needle[0])
+                substring = haystack[index:]
+                if substring.startswith(needle):
+                    return index
+                haystack = haystack[:index] + "." + haystack[index + 1:]
+            except ValueError as e:
+                return -1
